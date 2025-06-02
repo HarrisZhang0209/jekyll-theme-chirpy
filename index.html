@@ -2,14 +2,52 @@
 layout: home
 ---
 
-<section style="text-align: center; margin-top: 80px; max-width: 800px; margin-left: auto; margin-right: auto;">
+<style>
+  /* 中央居中容器，最大宽度限制，响应式 */
+  .hero-container {
+    max-width: 720px;
+    margin: 80px auto 120px;
+    padding: 0 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #222;
+    line-height: 1.6;
+  }
+  /* 大标题 */
+  .hero-container h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    letter-spacing: -0.04em;
+    margin-bottom: 0.3em;
+  }
+  /* 副标题斜体 */
+  .hero-container p.lead {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 2.5em;
+  }
+  /* 正文 */
+  .hero-container p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1.4em;
+  }
+  /* 重点词用加粗 */
+  .hero-container strong {
+    font-weight: 600;
+    color: #111;
+  }
+</style>
+
+<section class="hero-container">
   <h1>Welcome to <strong>Lingutopia / 语托邦</strong></h1>
-  <p style="font-style: italic; font-size: 1.2em;">
-    A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.
-  </p>
-  <p style="margin-top: 30px; font-size: 1.1em;">
-    <strong>Lingutopia / 语托邦</strong> is a free, open-access platform for all who are passionate about linguistics.<br/>
-    Here, you will find resources, updates, learning tools, and a welcoming community of scholars and students.<br/>
-    Let’s build a place where knowledge is shared, curiosity is nurtured, and freedom of thought is celebrated.
-  </p>
+
+  <p class="lead">A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.</p>
+
+  <p><strong>Lingutopia / 语托邦</strong> is a free, open-access platform for all who are passionate about linguistics.</p>
+
+  <p>Here, you will find resources, updates, learning tools, and a welcoming community of scholars and students.</p>
+
+  <p>Let’s build a place where knowledge is shared, curiosity is nurtured, and freedom of thought is celebrated.</p>
 </section>

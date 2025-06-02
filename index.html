@@ -4,7 +4,7 @@ layout: home
 
 <style>
   body {
-    background-color: #2f2f2f; /* 商务灰 */
+    background-color: #2f2f2f;
     color: #eee;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
@@ -15,7 +15,7 @@ layout: home
     padding: 0 20px;
   }
 
-  /* Welcome板块 */
+  /* Welcome */
   .welcome {
     text-align: center;
     margin-bottom: 40px;
@@ -42,18 +42,17 @@ layout: home
     margin-bottom: 60px;
   }
 
-  /* 核心板块整体 - 暗黄色背景 */
+  /* 核心板块整体 - 暗黄色背景，矩形卡片 */
   .core-section {
     flex: 1;
-    background-color: #c9a72a; /* 暗黄色 */
+    background-color: #c9a72a;
     border-radius: 12px;
     padding: 24px;
     display: flex;
     flex-direction: column;
-    color: #ddd; /* 统一灰白文字 */
+    color: #ddd;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
   }
-  /* 卡片顶部图片 */
   .core-section img {
     border-radius: 12px 12px 0 0;
     width: 100%;
@@ -61,22 +60,20 @@ layout: home
     object-fit: cover;
     margin-bottom: 16px;
   }
-
   .core-section h2 {
     font-size: 1.8rem;
     margin-bottom: 16px;
-    color: #ddd; /* 灰白色标题 */
-    border-bottom: 2px solid #fff; /* 白色分割线 */
+    color: #ddd;
+    border-bottom: 2px solid #fff;
     padding-bottom: 6px;
   }
-
   .core-section ul {
     list-style: none;
     padding-left: 0;
     margin: 0;
     font-size: 1rem;
     line-height: 1.6;
-    color: #ddd; /* 灰白文字 */
+    color: #ddd;
   }
   .core-section ul li {
     margin-bottom: 8px;
@@ -87,61 +84,82 @@ layout: home
     font-weight: bold;
   }
 
-  /* Banner板块通用样式 */
+  /* Banner通用 */
   section.additional-section {
-    border-radius: 12px;
-    padding: 28px 24px;
+    position: relative;
+    padding: 40px 30px 30px 30px;
     margin-bottom: 50px;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
     color: #f0f0f0;
-    position: relative;
-    overflow: hidden;
+    overflow: visible;
   }
-  /* Banner顶部图片 */
-  section.additional-section img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 12px 12px 0 0;
-    opacity: 0.35;
-    z-index: 0;
-  }
-  section.additional-section > * {
-    position: relative;
-    z-index: 1;
-  }
+
   section.additional-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
     border-bottom: 2px solid #fff;
     padding-bottom: 8px;
     color: #fff;
+    position: relative;
+    z-index: 10;
   }
+
   section.additional-section p, section.additional-section ul {
     font-size: 1.05rem;
     line-height: 1.7;
     color: #e6e6e6;
+    position: relative;
+    z-index: 10;
   }
   section.additional-section ul {
     list-style: inside disc;
     margin-top: 12px;
   }
 
-  /* 交替颜色 */
-  .banner-1 {
-    background-color: #d9534f; /* 橙红色 */
+  /* 圆形Banner */
+  .banner-circle {
+    background-color: #e57224; /* 橙红色 */
+    border-radius: 50%;
+    width: 320px;
+    height: 320px;
+    margin: 0 auto 50px auto;
+    padding: 40px 30px 30px 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   }
-  .banner-2 {
-    background-color: #9ACD32; /* 黄绿色 */
-  }
-  .banner-3 {
-    background-color: #4b3b2b; /* 暗褐色 */
+  .banner-circle h2 {
+    margin-top: 30px;
   }
 
-  /* About Us板块置底 */
+  /* 椭圆Banner */
+  .banner-ellipse {
+    background-color: #9ACD32; /* 黄绿色 */
+    border-radius: 100px / 50px;
+    padding: 40px 60px 40px 60px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  }
+
+  /* 斜切异形Banner */
+  .banner-skew {
+    background-color: #4b3b2b; /* 暗褐色 */
+    padding: 50px 40px 50px 40px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
+  }
+
+  /* Banner图片样式 - 改为设计感插画 */
+  .banner-img {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 120px;
+    height: 120px;
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  /* About Us置底 */
   .about-us {
     background-color: #555555;
     border-radius: 12px;
@@ -169,6 +187,16 @@ layout: home
     .core-section {
       margin-bottom: 30px;
     }
+    .banner-circle, .banner-ellipse, .banner-skew {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      clip-path: none;
+      padding: 30px;
+    }
+    .banner-img {
+      display: none;
+    }
   }
 </style>
 
@@ -184,7 +212,7 @@ layout: home
   <section class="core-sections">
 
     <div class="core-section">
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Academic Resources Image" />
+      <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-shapes@main/shape1.svg" alt="Academic Resources Image" />
       <h2>Academic Resources<br>学术资源</h2>
       <ul>
         <li>期刊数据库 / Journal Databases</li>
@@ -194,7 +222,7 @@ layout: home
     </div>
 
     <div class="core-section">
-      <img src="https://images.unsplash.com/photo-1519452575417-564c140aa60e?auto=format&fit=crop&w=600&q=80" alt="Learning Hub Image" />
+      <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-shapes@main/shape2.svg" alt="Learning Hub Image" />
       <h2>Learning Hub<br>学习专区</h2>
       <ul>
         <li>语言学导论 / Introduction to Linguistics</li>
@@ -204,7 +232,7 @@ layout: home
     </div>
 
     <div class="core-section">
-      <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=600&q=80" alt="Research Updates Image" />
+      <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-shapes@main/shape3.svg" alt="Research Updates Image" />
       <h2>Research Updates<br>研究动态</h2>
       <ul>
         <li>最新论文 / Latest Papers</li>
@@ -214,7 +242,7 @@ layout: home
     </div>
 
     <div class="core-section">
-      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80" alt="Community Image" />
+      <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-shapes@main/shape4.svg" alt="Community Image" />
       <h2>Community<br>社区交流</h2>
       <ul>
         <li>讨论区 / Discussion Forum</li>
@@ -227,30 +255,24 @@ layout: home
 
   <!-- Banner板块 -->
 
-  <section class="additional-section banner-1">
-    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80" alt="Featured Publications" />
-    <h2>Featured Publications<br>精选出版物</h2>
-    <p>Discover our handpicked selection of influential journals, books, and articles that have shaped contemporary linguistics.</p>
-  </section>
-
-  <section class="additional-section banner-2">
-    <img src="https://images.unsplash.com/photo-1504384308090-0ec5e6457d51?auto=format&fit=crop&w=1200&q=80" alt="Upcoming Events" />
-    <h2>Upcoming Events<br>即将举办活动</h2>
+  <section class="additional-section banner-circle" style="background-color:#E85C3C;">
+    <img class="banner-img" src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/megaphone.svg" alt="Upcoming Events" />
+    <h2>Upcoming Events<br>近期活动</h2>
     <ul>
-      <li>International Linguistics Conference 2025 – April 15-18</li>
-      <li>Webinar: Advances in Phonetics – May 10</li>
       <li>Workshop: Computational Linguistics – June 5-7</li>
+      <li>Symposium: Language and AI – July 12-14</li>
+      <li>Webinar: Discourse Analysis – August 10</li>
     </ul>
   </section>
 
-  <section class="additional-section banner-3">
-    <img src="https://images.unsplash.com/photo-1531266757380-3fdfc4481f15?auto=format&fit=crop&w=1200&q=80" alt="Call for Papers" />
+  <section class="additional-section banner-ellipse" style="background-color:#A3C93A;">
+    <img class="banner-img" src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/call-for-papers.svg" alt="Call for Papers" />
     <h2>Call for Papers<br>征稿启事</h2>
     <p>Submit your latest research articles and proposals for our upcoming special issues and conferences.</p>
   </section>
 
-  <!-- About Us -->
-  <section class="about-us">
+  <section class="additional-section banner-skew" style="background-color:#3E2C1C;">
+    <img class="banner-img" src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/about-us.svg" alt="About Us" />
     <h2>About Lingutopia / 语托邦</h2>
     <p>Lingutopia is your ultimate linguistic utopia, where researchers, students, and enthusiasts come together to explore the vast landscape of language studies. We strive to provide cutting-edge academic resources, foster collaborative learning, and create a vibrant community for linguistic innovation.</p>
   </section>

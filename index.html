@@ -34,7 +34,7 @@ layout: home
     color: #d1d1d1;
   }
 
-  /* 四大核心板块容器 */
+  /* 核心板块容器 */
   .core-sections {
     display: flex;
     justify-content: space-between;
@@ -42,7 +42,7 @@ layout: home
     margin-bottom: 60px;
   }
 
-  /* 每个核心板块整体 - 暗黄色背景 */
+  /* 核心板块整体 - 暗黄色背景 */
   .core-section {
     flex: 1;
     background-color: #c9a72a; /* 暗黄色 */
@@ -50,14 +50,22 @@ layout: home
     padding: 24px;
     display: flex;
     flex-direction: column;
-    color: #003366; /* 深蓝色字体 */
+    color: #ddd; /* 统一灰白文字 */
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+  }
+  /* 卡片顶部图片 */
+  .core-section img {
+    border-radius: 12px 12px 0 0;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    margin-bottom: 16px;
   }
 
   .core-section h2 {
     font-size: 1.8rem;
     margin-bottom: 16px;
-    color: #003366; /* 深蓝色标题 */
+    color: #ddd; /* 灰白色标题 */
     border-bottom: 2px solid #fff; /* 白色分割线 */
     padding-bottom: 6px;
   }
@@ -68,7 +76,7 @@ layout: home
     margin: 0;
     font-size: 1rem;
     line-height: 1.6;
-    color: #003366; /* 深蓝色文字 */
+    color: #ddd; /* 灰白文字 */
   }
   .core-section ul li {
     margin-bottom: 8px;
@@ -86,6 +94,24 @@ layout: home
     margin-bottom: 50px;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
     color: #f0f0f0;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Banner顶部图片 */
+  section.additional-section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    opacity: 0.35;
+    z-index: 0;
+  }
+  section.additional-section > * {
+    position: relative;
+    z-index: 1;
   }
   section.additional-section h2 {
     font-size: 2rem;
@@ -109,7 +135,7 @@ layout: home
     background-color: #d9534f; /* 橙红色 */
   }
   .banner-2 {
-    background-color: #5bc0de; /* 浅蓝色 */
+    background-color: #9ACD32; /* 黄绿色 */
   }
   .banner-3 {
     background-color: #4b3b2b; /* 暗褐色 */
@@ -158,6 +184,7 @@ layout: home
   <section class="core-sections">
 
     <div class="core-section">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Academic Resources Image" />
       <h2>Academic Resources<br>学术资源</h2>
       <ul>
         <li>期刊数据库 / Journal Databases</li>
@@ -167,6 +194,7 @@ layout: home
     </div>
 
     <div class="core-section">
+      <img src="https://images.unsplash.com/photo-1519452575417-564c140aa60e?auto=format&fit=crop&w=600&q=80" alt="Learning Hub Image" />
       <h2>Learning Hub<br>学习专区</h2>
       <ul>
         <li>语言学导论 / Introduction to Linguistics</li>
@@ -176,6 +204,7 @@ layout: home
     </div>
 
     <div class="core-section">
+      <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=600&q=80" alt="Research Updates Image" />
       <h2>Research Updates<br>研究动态</h2>
       <ul>
         <li>最新论文 / Latest Papers</li>
@@ -185,6 +214,7 @@ layout: home
     </div>
 
     <div class="core-section">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80" alt="Community Image" />
       <h2>Community<br>社区交流</h2>
       <ul>
         <li>讨论区 / Discussion Forum</li>
@@ -198,29 +228,31 @@ layout: home
   <!-- Banner板块 -->
 
   <section class="additional-section banner-1">
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80" alt="Featured Publications" />
     <h2>Featured Publications<br>精选出版物</h2>
     <p>Discover our handpicked selection of influential journals, books, and articles that have shaped contemporary linguistics.</p>
   </section>
 
   <section class="additional-section banner-2">
+    <img src="https://images.unsplash.com/photo-1504384308090-0ec5e6457d51?auto=format&fit=crop&w=1200&q=80" alt="Upcoming Events" />
     <h2>Upcoming Events<br>即将举办活动</h2>
     <ul>
       <li>International Linguistics Conference 2025 – April 15-18</li>
       <li>Webinar: Advances in Phonetics – May 10</li>
-      <li>Monthly Research Seminar Series – Every first Thursday</li>
+      <li>Workshop: Computational Linguistics – June 5-7</li>
     </ul>
   </section>
 
   <section class="additional-section banner-3">
-    <h2>Member Spotlight<br>会员聚焦</h2>
-    <p>Highlighting contributions and achievements from outstanding community members worldwide.</p>
+    <img src="https://images.unsplash.com/photo-1531266757380-3fdfc4481f15?auto=format&fit=crop&w=1200&q=80" alt="Call for Papers" />
+    <h2>Call for Papers<br>征稿启事</h2>
+    <p>Submit your latest research articles and proposals for our upcoming special issues and conferences.</p>
   </section>
 
   <!-- About Us -->
   <section class="about-us">
-    <h2>About Us / 关于我们</h2>
-    <p>Lingutopia / 语托邦 is founded on the ideals of academic freedom, equality, and collective growth. We provide an open platform for linguistic students and scholars worldwide to share knowledge, inspire each other, and push the boundaries of linguistic research.</p>
-    <p>Rooted in the belief that language shapes understanding and culture, Lingutopia aims to cultivate a nurturing environment where intellectual curiosity and open dialogue thrive. Join us in building this ideal linguistic utopia.</p>
+    <h2>About Lingutopia / 语托邦</h2>
+    <p>Lingutopia is your ultimate linguistic utopia, where researchers, students, and enthusiasts come together to explore the vast landscape of language studies. We strive to provide cutting-edge academic resources, foster collaborative learning, and create a vibrant community for linguistic innovation.</p>
   </section>
 
 </div>

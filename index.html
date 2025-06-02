@@ -7,91 +7,123 @@
     <meta name="description" content="语言学知识平台，提供学术资源、学习资料和研究动态，促进语言学者交流合作">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-dark: #2f2f2f;
-            --primary-accent: #c9a72a;
-            --accent-hover: #f4b41a;
-            --banner-1: #d9534f;
-            --banner-2: #9ACD32;
-            --banner-3: #4b3b2b;
-            --banner-4: #555555;
-            --text-light: #f0f0f0;
-            --text-medium: #cfcfcf;
-            --shadow-dark: rgba(0, 0, 0, 0.45);
+            --primary-dark: #121212;
+            --primary-light: #1e1e1e;
+            --accent-gold: #d4af37;
+            --accent-blue: #3498db;
+            --accent-green: #2ecc71;
+            --accent-red: #e74c3c;
+            --text-light: #f5f5f5;
+            --text-medium: #cccccc;
+            --text-dark: #333333;
+            --card-1: rgba(52, 152, 219, 0.15);
+            --card-2: rgba(46, 204, 113, 0.15);
+            --card-3: rgba(231, 76, 60, 0.15);
+            --card-4: rgba(212, 175, 55, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* 全局字体与颜色 */
-        body {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2f2f2f 100%);
-            color: var(--text-light);
-            font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            letter-spacing: 0.03em;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: var(--text-light);
+            font-family: 'Montserrat', 'Noto Sans SC', sans-serif;
+            line-height: 1.7;
+            letter-spacing: 0.03em;
             min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(46, 204, 113, 0.05) 0%, transparent 20%);
+            z-index: -1;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 40px auto 80px;
+            max-width: 1300px;
+            margin: 0 auto;
             padding: 0 20px;
         }
 
         /* 顶部导航 */
         .navbar {
-            background: rgba(47, 47, 47, 0.95);
-            backdrop-filter: blur(10px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            padding: 15px 0;
+            padding: 20px 0;
+            transition: background 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .logo {
             font-weight: 800;
-            font-size: 1.8rem;
-            color: var(--accent-hover);
+            font-size: 2.2rem;
+            color: var(--accent-gold);
             text-decoration: none;
             display: flex;
             align-items: center;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--text-light);
         }
 
         .logo-icon {
-            margin-right: 10px;
-            font-size: 1.5rem;
+            margin-right: 12px;
+            font-size: 1.8rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 40px;
         }
 
         .nav-links a {
-            color: var(--text-light);
+            color: var(--text-medium);
             text-decoration: none;
             font-weight: 500;
             font-size: 1.1rem;
             position: relative;
-            padding: 5px 0;
+            padding: 8px 0;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent-hover);
+            color: var(--accent-gold);
         }
 
         .nav-links a::after {
@@ -101,7 +133,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-hover);
+            background: var(--accent-gold);
             transition: width 0.3s ease;
         }
 
@@ -112,226 +144,337 @@
         /* Welcome */
         .welcome {
             text-align: center;
-            margin: 120px 0 70px;
+            margin: 160px 0 100px;
             padding: 0 20px;
+            position: relative;
         }
+
         .welcome h1 {
             font-weight: 800;
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
-            margin-bottom: 0.8rem;
-            color: #fff;
-            letter-spacing: 0.05em;
-            line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            margin-bottom: 1.2rem;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+            line-height: 1.15;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
+
         .welcome p {
-            font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-            max-width: 800px;
+            font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+            max-width: 900px;
             margin: 0 auto;
             color: var(--text-medium);
             padding: 0 15px;
         }
 
         .highlight {
-            color: var(--accent-hover);
+            color: var(--accent-gold);
             font-weight: 600;
         }
 
         /* 核心板块容器 */
         .core-sections {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-            margin-bottom: 70px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 100px;
         }
 
-        /* 核心板块整体 - 暗黄色背景 */
+        /* 核心板块整体 */
         .core-section {
-            background: linear-gradient(145deg, #c9a72a 0%, #b08a1f 100%);
-            border-radius: 16px;
-            padding: 28px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 35px 30px;
             display: flex;
             flex-direction: column;
-            color: #f5f5f5;
-            box-shadow: 0 10px 25px var(--shadow-dark);
+            color: var(--text-light);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
-            transform: translateY(0);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        .core-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            opacity: 0.7;
+            transition: height 0.4s ease;
+        }
+
         .core-section:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-            z-index: 10;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .core-section:hover::before {
+            height: 100%;
+            opacity: 0.1;
         }
         
         /* 卡片顶部图片 */
-        .core-section img {
-            border-radius: 12px;
+        .core-section .img-container {
+            border-radius: 16px;
             width: 100%;
-            height: 180px;
+            height: 220px;
+            overflow: hidden;
+            margin-bottom: 28px;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .core-section .img-container img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            margin-bottom: 22px;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.5s ease;
+        }
+
+        .core-section:hover .img-container img {
+            transform: scale(1.05);
         }
 
         .core-section h2 {
-            font-size: clamp(1.7rem, 2.2vw, 2.1rem);
-            margin-bottom: 20px;
-            color: #fff;
+            font-size: clamp(1.9rem, 2.5vw, 2.3rem);
+            margin-bottom: 25px;
+            color: var(--text-light);
             letter-spacing: 0.05em;
-            border-bottom: 2.5px solid rgba(255, 255, 255, 0.5);
-            padding-bottom: 12px;
             font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        .core-section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 12px 0 20px;
+            border-radius: 2px;
         }
 
         .core-section ul {
             list-style: none;
             padding-left: 0;
             margin: 0;
-            font-size: 1.12rem;
-            line-height: 1.7;
-            color: #f0f0f0;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-medium);
             flex-grow: 1;
-        }
-        .core-section ul li {
-            margin-bottom: 12px;
-            padding-left: 22px;
             position: relative;
+            z-index: 2;
         }
+
+        .core-section ul li {
+            margin-bottom: 14px;
+            padding-left: 30px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .core-section ul li:hover {
+            color: var(--text-light);
+        }
+
         .core-section ul li::before {
             content: "•";
             position: absolute;
             left: 0;
-            color: #fff;
+            color: var(--accent-gold);
             font-weight: bold;
             font-size: 1.8rem;
-            top: -8px;
+            top: -5px;
             opacity: 0.8;
         }
 
         /* Banner板块通用样式 */
-        section.additional-section {
-            border-radius: 16px;
-            padding: 40px 35px;
-            margin-bottom: 60px;
-            box-shadow: 0 10px 30px var(--shadow-dark);
+        .banner-section {
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin-bottom: 70px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             color: var(--text-light);
             position: relative;
             overflow: hidden;
-            cursor: default;
-            transition: transform 0.3s ease;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        section.additional-section:hover {
+
+        .banner-section:hover {
             transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
         }
-        section.additional-section img {
+
+        .banner-section .banner-img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 16px;
+            border-radius: 20px;
             opacity: 0.2;
             z-index: 0;
-            animation: fadeIn 1.5s forwards;
         }
-        section.additional-section::before {
-            content: "";
+
+        .banner-section .content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .banner-section h2 {
+            font-size: clamp(2.1rem, 3.5vw, 2.8rem);
+            margin-bottom: 30px;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .banner-section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-gold);
+            margin: 15px 0 25px;
+            border-radius: 2px;
+        }
+
+        .banner-section p, .banner-section ul {
+            font-size: 1.2rem;
+            line-height: 1.85;
+            color: var(--text-medium);
+            max-width: 800px;
+        }
+
+        .banner-section ul {
+            list-style: none;
+            margin-top: 25px;
+            padding-left: 0;
+        }
+
+        .banner-section ul li {
+            margin-bottom: 16px;
+            padding-left: 35px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .banner-section ul li:hover {
+            color: var(--text-light);
+        }
+
+        .banner-section ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+            top: 0;
+            font-size: 1.5rem;
+        }
+
+        /* 卡片颜色 */
+        .banner-1 {
+            background: var(--card-1);
+        }
+
+        .banner-2 {
+            background: var(--card-2);
+        }
+
+        .banner-3 {
+            background: var(--card-3);
+        }
+
+        /* About Us板块 */
+        .about-us {
+            background: var(--card-4);
+            border-radius: 20px;
+            padding: 60px 50px;
+            margin: 100px 0 80px;
+            color: var(--text-light);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-us .about-img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
-            z-index: 1;
+            object-fit: cover;
+            opacity: 0.15;
+            z-index: 0;
         }
-        section.additional-section > * {
+
+        .about-content {
             position: relative;
             z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
-        section.additional-section h2 {
-            font-size: clamp(1.9rem, 2.8vw, 2.3rem);
-            margin-bottom: 25px;
-            border-bottom: 3px solid rgba(255, 255, 255, 0.5);
-            padding-bottom: 12px;
+
+        .about-text h2 {
+            font-size: clamp(2.3rem, 4vw, 3rem);
+            margin-bottom: 30px;
             letter-spacing: 0.05em;
-            font-weight: 700;
-        }
-        section.additional-section p, section.additional-section ul {
-            font-size: 1.18rem;
-            line-height: 1.85;
-            color: #e6e6e6;
-            max-width: 900px;
-        }
-        section.additional-section ul {
-            list-style: none;
-            margin-top: 18px;
-            padding-left: 0;
-        }
-        section.additional-section ul li {
-            margin-bottom: 14px;
-            padding-left: 28px;
+            font-weight: 800;
             position: relative;
         }
-        section.additional-section ul li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent-hover);
-            font-weight: bold;
-            top: 0;
+
+        .about-text h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--accent-gold);
+            margin: 15px 0 30px;
+            border-radius: 2px;
         }
 
-        /* 交替颜色 */
-        .banner-1 {
-            background: linear-gradient(135deg, var(--banner-1) 0%, #c12e2a 100%);
-        }
-        .banner-2 {
-            background: linear-gradient(135deg, var(--banner-2) 0%, #7cb518 100%);
-        }
-        .banner-3 {
-            background: linear-gradient(135deg, var(--banner-3) 0%, #3a2d22 100%);
-        }
-
-        /* About Us板块置底 */
-        .about-us {
-            background: linear-gradient(135deg, var(--banner-4) 0%, #444 100%);
-            border-radius: 16px;
-            padding: 45px 40px;
-            margin-top: 80px;
-            color: #eee;
-            box-shadow: 0 10px 30px var(--shadow-dark);
-        }
-        .about-us h2 {
-            font-size: clamp(2rem, 3vw, 2.5rem);
+        .about-text p {
+            font-size: 1.2rem;
+            line-height: 1.85;
+            color: var(--text-medium);
             margin-bottom: 25px;
-            border-bottom: 3px solid rgba(255, 255, 255, 0.5);
-            padding-bottom: 12px;
-            letter-spacing: 0.05em;
-            color: #fff;
-            font-weight: 700;
-        }
-        .about-us p {
-            font-size: 1.18rem;
-            line-height: 1.8;
-            color: #ddd;
         }
 
-        /* 动画关键帧 */
-        @keyframes fadeIn {
-            to { opacity: 1; }
+        .about-img-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: rotate(3deg);
+            transition: transform 0.5s ease;
         }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+
+        .about-img-container:hover {
+            transform: rotate(0) scale(1.02);
+        }
+
+        .about-img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* 回到顶部按钮 */
@@ -339,16 +482,16 @@
             position: fixed;
             bottom: 40px;
             right: 40px;
-            background: linear-gradient(135deg, var(--primary-accent) 0%, var(--accent-hover) 100%);
-            color: #2f2f2f;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #c9a62a 100%);
+            color: var(--text-dark);
             border: none;
             border-radius: 50%;
-            width: 56px;
-            height: 56px;
-            font-size: 26px;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
             cursor: pointer;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
             z-index: 100;
             display: flex;
             align-items: center;
@@ -357,133 +500,200 @@
             transform: translateY(20px);
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
+
         #backToTop.show {
             opacity: 1;
             transform: translateY(0);
         }
+
         #backToTop:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
         }
 
         /* 页脚 */
         .footer {
-            background: rgba(30, 30, 30, 0.9);
-            padding: 40px 0 20px;
+            background: rgba(10, 10, 10, 0.9);
+            padding: 60px 0 30px;
             margin-top: 80px;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .footer-content {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        
+
         .footer-logo {
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            color: var(--accent-hover);
-            margin-bottom: 20px;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            letter-spacing: 1px;
         }
-        
+
+        .footer-tagline {
+            font-size: 1.3rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto 35px;
+        }
+
         .footer-links {
             display: flex;
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 35px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
             justify-content: center;
         }
-        
+
         .footer-links a {
             color: var(--text-medium);
             text-decoration: none;
+            font-size: 1.1rem;
             transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        
+
         .footer-links a:hover {
-            color: var(--accent-hover);
+            color: var(--accent-gold);
         }
-        
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            color: var(--text-light);
+            font-size: 1.4rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-gold);
+            color: var(--text-dark);
+            transform: translateY(-5px);
+        }
+
         .copyright {
             color: #777;
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-top: 20px;
         }
 
         /* 响应式 */
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
             .nav-links {
-                gap: 20px;
+                gap: 25px;
             }
             
-            .welcome {
-                margin: 100px 0 50px;
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-img-container {
+                max-width: 80%;
+                margin: 0 auto;
             }
         }
-        
+
         @media (max-width: 768px) {
             .navbar {
-                padding: 12px 0;
+                padding: 15px 0;
             }
             
             .nav-container {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
             }
             
             .nav-links {
-                gap: 15px;
+                gap: 20px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
             
             .welcome {
-                margin: 130px 0 50px;
+                margin: 140px 0 70px;
             }
             
             .core-section {
-                padding: 24px 20px;
-            }
-            
-            section.additional-section {
                 padding: 30px 25px;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .nav-links {
-                gap: 12px;
-                font-size: 0.9rem;
+            
+            .banner-section {
+                padding: 40px 30px;
             }
             
-            .welcome h1 {
-                font-size: 2.1rem;
-            }
-            
-            .welcome p {
-                font-size: 1.15rem;
-            }
-            
-            .core-section img {
-                height: 150px;
-            }
-            
-            .core-section ul li {
-                font-size: 1rem;
+            .about-us {
+                padding: 45px 35px;
             }
             
             #backToTop {
-                width: 48px;
-                height: 48px;
-                font-size: 22px;
-                bottom: 25px;
-                right: 25px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                bottom: 30px;
+                right: 30px;
             }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 1rem;
+            }
+            
+            .welcome h1 {
+                font-size: 2.4rem;
+            }
+            
+            .welcome p {
+                font-size: 1.2rem;
+            }
+            
+            .core-section .img-container {
+                height: 180px;
+            }
+            
+            .core-section ul li {
+                font-size: 1.05rem;
+            }
+            
+            .footer-links {
+                gap: 20px;
+            }
+        }
+
+        /* 动画关键帧 */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
         }
     </style>
 </head>
@@ -493,20 +703,19 @@
         <div class="nav-container">
             <a href="#" class="logo" aria-label="Lingutopia Home">
                 <span class="logo-icon">🌐</span>
-                Lingutopia
+                Lingo<span>topia</span>
             </a>
             <div class="nav-links">
-                <a href="#academic" aria-label="Academic Resources">学术资源</a>
-                <a href="#learning" aria-label="Learning Hub">学习专区</a>
-                <a href="#research" aria-label="Research Updates">研究动态</a>
-                <a href="#community" aria-label="Community">社区交流</a>
-                <a href="#about" aria-label="About Us">关于我们</a>
+                <a href="#academic" aria-label="Academic Resources"><i class="fas fa-book-open"></i> 学术资源</a>
+                <a href="#learning" aria-label="Learning Hub"><i class="fas fa-graduation-cap"></i> 学习专区</a>
+                <a href="#research" aria-label="Research Updates"><i class="fas fa-flask"></i> 研究动态</a>
+                <a href="#community" aria-label="Community"><i class="fas fa-users"></i> 社区交流</a>
+                <a href="#about" aria-label="About Us"><i class="fas fa-info-circle"></i> 关于我们</a>
             </div>
         </div>
     </nav>
 
     <div class="container">
-
         <!-- Welcome -->
         <section class="welcome" aria-label="Welcome Section">
             <h1>Welcome to <span class="highlight">Lingutopia</span> / 语托邦</h1>
@@ -517,42 +726,58 @@
         <section class="core-sections" aria-label="Core Sections">
 
             <div class="core-section" tabindex="0" aria-describedby="desc-academic" id="academic">
-                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80&dpr=2" loading="lazy" alt="Academic Resources" />
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80&dpr=2" loading="lazy" alt="Academic Resources" />
+                </div>
                 <h2>Academic Resources<br>学术资源</h2>
                 <ul id="desc-academic">
                     <li>Journal Databases / 期刊数据库</li>
                     <li>Corpora / 语料库</li>
                     <li>Open Access Resources / 开放获取资源</li>
+                    <li>Research Tools / 研究工具</li>
+                    <li>Digital Archives / 数字档案</li>
                 </ul>
             </div>
 
             <div class="core-section" tabindex="0" aria-describedby="desc-learning" id="learning">
-                <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=600&q=80&dpr=2" loading="lazy" alt="Learning Hub" />
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80&dpr=2" loading="lazy" alt="Learning Hub" />
+                </div>
                 <h2>Learning Hub<br>学习专区</h2>
                 <ul id="desc-learning">
                     <li>Introduction to Linguistics / 语言学导论</li>
                     <li>Research Methods / 研究方法</li>
                     <li>Academic Writing / 学术写作</li>
+                    <li>Language Acquisition / 语言习得</li>
+                    <li>Online Courses / 在线课程</li>
                 </ul>
             </div>
 
             <div class="core-section" tabindex="0" aria-describedby="desc-research" id="research">
-                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80&dpr=2" loading="lazy" alt="Research Updates" />
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80&dpr=2" loading="lazy" alt="Research Updates" />
+                </div>
                 <h2>Research Updates<br>研究动态</h2>
                 <ul id="desc-research">
                     <li>Latest Papers / 最新论文</li>
                     <li>Conference Information / 会议信息</li>
                     <li>Research Projects / 研究项目</li>
+                    <li>Funding Opportunities / 资金机会</li>
+                    <li>Industry Trends / 行业趋势</li>
                 </ul>
             </div>
 
             <div class="core-section" tabindex="0" aria-describedby="desc-community" id="community">
-                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80&dpr=2" loading="lazy" alt="Community" />
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1522071901873-411886a10004?auto=format&fit=crop&w=800&q=80&dpr=2" loading="lazy" alt="Community" />
+                </div>
                 <h2>Community<br>社区交流</h2>
                 <ul id="desc-community">
                     <li>Discussion Forum / 讨论区</li>
                     <li>Collaboration Opportunities / 合作机会</li>
                     <li>Q&amp;A / 求助问答</li>
+                    <li>Expert Interviews / 专家访谈</li>
+                    <li>Study Groups / 学习小组</li>
                 </ul>
             </div>
 
@@ -560,44 +785,65 @@
 
         <!-- Banner板块 -->
 
-        <section class="additional-section banner-1" aria-label="Featured Publications">
-            <img src="https://images.unsplash.com/photo-1486308510493-cf07fcd48944?auto=format&fit=crop&w=1200&q=80&dpr=2" loading="lazy" alt="Featured Publications Background" />
-            <h2>Featured Publications<br>精选出版物</h2>
-            <p>Discover our curated collection of influential journals, books, and articles that have shaped contemporary linguistics worldwide.</p>
-            <ul>
-                <li>Top Linguistics Journals / 顶级语言学期刊</li>
-                <li>Essential Textbooks / 必备教材</li>
-                <li>Landmark Research Papers / 里程碑研究论文</li>
-            </ul>
+        <section class="banner-section banner-1" aria-label="Featured Publications">
+            <img class="banner-img" src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?auto=format&fit=crop&w=1200&q=80&dpr=2" loading="lazy" alt="Featured Publications Background" />
+            <div class="content">
+                <h2>Featured Publications<br>精选出版物</h2>
+                <p>Discover our curated collection of influential journals, books, and articles that have shaped contemporary linguistics worldwide. Each publication is carefully selected for its impact on the field.</p>
+                <ul>
+                    <li>Top Linguistics Journals / 顶级语言学期刊</li>
+                    <li>Essential Textbooks / 必备教材</li>
+                    <li>Landmark Research Papers / 里程碑研究论文</li>
+                    <li>Emerging Authors / 新兴作者</li>
+                    <li>Multilingual Resources / 多语言资源</li>
+                </ul>
+            </div>
         </section>
 
-        <section class="additional-section banner-2" aria-label="Upcoming Events">
-            <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1200&q=80&dpr=2" loading="lazy" alt="Upcoming Events Background" />
-            <h2>Upcoming Events<br>即将举办活动</h2>
-            <ul>
-                <li>International Linguistics Conference 2025 / 2025年国际语言学大会</li>
-                <li>Workshops on Computational Linguistics / 计算语言学研讨会</li>
-                <li>Webinars and Seminars / 线上讲座及研讨</li>
-                <li>Guest Lectures / 客座讲座</li>
-            </ul>
+        <section class="banner-section banner-2" aria-label="Upcoming Events">
+            <img class="banner-img" src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80&dpr=2" loading="lazy" alt="Upcoming Events Background" />
+            <div class="content">
+                <h2>Upcoming Events<br>即将举办活动</h2>
+                <p>Participate in our global events designed to connect linguists, foster innovation, and advance the field of language studies. From conferences to workshops, we offer diverse learning opportunities.</p>
+                <ul>
+                    <li>International Linguistics Conference 2025 / 2025年国际语言学大会</li>
+                    <li>Workshops on Computational Linguistics / 计算语言学研讨会</li>
+                    <li>Webinars and Seminars / 线上讲座及研讨</li>
+                    <li>Guest Lectures / 客座讲座</li>
+                    <li>Research Presentations / 研究成果展示</li>
+                </ul>
+            </div>
         </section>
 
-        <section class="additional-section banner-3" aria-label="Join Our Community">
-            <img src="https://images.unsplash.com/photo-1526378723979-5b2c25ef7384?auto=format&fit=crop&w=1200&q=80&dpr=2" loading="lazy" alt="Join Our Community Background" />
-            <h2>Join Our Community<br>加入我们的社区</h2>
-            <p>Connect with linguists globally, exchange ideas, and collaborate on cutting-edge research projects.</p>
-            <ul>
-                <li>Global Discussion Forums / 全球讨论区</li>
-                <li>Research Collaboration Hub / 研究合作中心</li>
-                <li>Language Learning Groups / 语言学习小组</li>
-            </ul>
+        <section class="banner-section banner-3" aria-label="Join Our Community">
+            <img class="banner-img" src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?auto=format&fit=crop&w=1200&q=80&dpr=2" loading="lazy" alt="Join Our Community Background" />
+            <div class="content">
+                <h2>Join Our Community<br>加入我们的社区</h2>
+                <p>Connect with linguists globally, exchange ideas, and collaborate on cutting-edge research projects. Our community is built on mutual respect, knowledge sharing, and innovation.</p>
+                <ul>
+                    <li>Global Discussion Forums / 全球讨论区</li>
+                    <li>Research Collaboration Hub / 研究合作中心</li>
+                    <li>Language Learning Groups / 语言学习小组</li>
+                    <li>Mentorship Programs / 导师计划</li>
+                    <li>Local Meetups / 本地聚会</li>
+                </ul>
+            </div>
         </section>
 
         <!-- About Us板块 -->
         <section class="about-us" aria-label="About Lingutopia" id="about">
-            <h2>About Lingutopia / 关于语托邦</h2>
-            <p>Lingutopia is a visionary platform dedicated to fostering knowledge, dialogue, and innovation in the field of linguistics. We embrace diversity, international perspectives, and creative approaches to advance the science and art of language study.</p>
-            <p>Our mission is to create an inclusive space where linguists, researchers, students, and language enthusiasts can connect, collaborate, and contribute to the collective understanding of human language in all its forms.</p>
+            <img class="about-img" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80&dpr=2" loading="lazy" alt="About Us Background" />
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Lingutopia / 关于语托邦</h2>
+                    <p>Lingutopia is a visionary platform dedicated to fostering knowledge, dialogue, and innovation in the field of linguistics. We embrace diversity, international perspectives, and creative approaches to advance the science and art of language study.</p>
+                    <p>Our mission is to create an inclusive space where linguists, researchers, students, and language enthusiasts can connect, collaborate, and contribute to the collective understanding of human language in all its forms.</p>
+                    <p>With a commitment to accessibility and excellence, we provide resources that bridge academic research and practical application, making linguistic knowledge available to everyone.</p>
+                </div>
+                <div class="about-img-container">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80&dpr=2" loading="lazy" alt="Linguistics Community" />
+                </div>
+            </div>
         </section>
 
     </div>
@@ -606,18 +852,27 @@
     <footer class="footer" aria-label="Site Footer">
         <div class="footer-content">
             <div class="footer-logo">Lingutopia</div>
+            <p class="footer-tagline">A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.</p>
             <div class="footer-links">
-                <a href="#" aria-label="About Us">关于我们</a>
-                <a href="#" aria-label="Contact">联系我们</a>
-                <a href="#" aria-label="Privacy Policy">隐私政策</a>
-                <a href="#" aria-label="Terms of Service">使用条款</a>
-                <a href="#" aria-label="Contribute">贡献指南</a>
+                <a href="#academic" aria-label="Academic Resources"><i class="fas fa-book-open"></i> 学术资源</a>
+                <a href="#learning" aria-label="Learning Hub"><i class="fas fa-graduation-cap"></i> 学习专区</a>
+                <a href="#research" aria-label="Research Updates"><i class="fas fa-flask"></i> 研究动态</a>
+                <a href="#community" aria-label="Community"><i class="fas fa-users"></i> 社区交流</a>
+                <a href="#about" aria-label="About Us"><i class="fas fa-info-circle"></i> 关于我们</a>
+                <a href="#" aria-label="Contact"><i class="fas fa-envelope"></i> 联系我们</a>
             </div>
-            <p class="copyright">© 2025 Lingutopia / 语托邦. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="WeChat"><i class="fab fa-weixin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2025 Lingutopia / 语托邦. All rights reserved. Crafted with ❤️ for linguists worldwide.</p>
         </div>
     </footer>
 
-    <button id="backToTop" aria-label="Back to top">↑</button>
+    <button id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
     <script>
         // 回到顶部按钮逻辑
@@ -628,6 +883,14 @@
                 backToTopBtn.classList.add('show');
             } else {
                 backToTopBtn.classList.remove('show');
+            }
+            
+            // 导航栏滚动效果
+            const navbar = document.querySelector('.navbar');
+            if(window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
         });
         
@@ -642,7 +905,7 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     window.scrollTo({
-                        top: target.offsetTop - 80,
+                        top: target.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
@@ -659,6 +922,13 @@
             section.addEventListener('mouseleave', () => {
                 section.style.zIndex = '1';
             });
+        });
+        
+        // 添加浮动效果
+        const floatingElements = document.querySelectorAll('.core-section, .banner-section');
+        floatingElements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
+            el.classList.add('floating');
         });
     </script>
 </body>

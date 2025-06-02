@@ -20,7 +20,7 @@ layout: home
   /* Welcome板块 */
   .welcome {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
   .welcome h1 {
     font-weight: 700;
@@ -29,10 +29,10 @@ layout: home
     color: #fff; /* 标题白色 */
   }
   .welcome p {
-    font-size: 1.3rem;
-    line-height: 1.3; /* 缩减行高，减少空白 */
+    font-size: 1.5rem;
+    line-height: 1.2;
     max-width: 700px;
-    margin: 8px auto; /* 缩小段间距 */
+    margin: 0 auto;
     color: #d1d1d1;
   }
 
@@ -64,17 +64,24 @@ layout: home
     padding-bottom: 6px;
   }
 
-  /* 每个核心板块内部单个卡片 */
-  .core-card {
-    background-color: #f5f5f5; /* 灰白色背景 */
-    border-radius: 10px;
-    padding: 18px 22px;
+  /* 每个核心板块内子标题列表 */
+  .core-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
     color: #2e4d3a; /* 墨绿色字体 */
     font-size: 1rem;
-    line-height: 1.5;
-    box-shadow: 0 4px 10px rgb(46 77 58 / 0.3);
-    margin-top: 12px;
-    flex-grow: 1;
+    line-height: 1.6;
+  }
+  .core-section ul li {
+    margin-bottom: 8px;
+  }
+
+  /* 小标题样式 */
+  .core-section ul li::before {
+    content: "• ";
+    color: #f4b41a;
+    font-weight: bold;
   }
 
   /* 新增板块样式 */
@@ -140,9 +147,6 @@ layout: home
   <section class="welcome">
     <h1>Welcome to Lingutopia / 语托邦</h1>
     <p>A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.</p>
-    <p>Lingutopia / 语托邦 is a free, open-access platform for all who are passionate about linguistics.<br>
-       Here, you will find resources, updates, learning tools, and a welcoming community of scholars and students.<br>
-       Let’s build a place where knowledge is shared, curiosity is nurtured, and freedom of thought is celebrated.</p>
   </section>
 
   <!-- 四大核心板块 -->
@@ -150,30 +154,37 @@ layout: home
 
     <div class="core-section">
       <h2>Academic Resources<br>学术资源</h2>
-      <div class="core-card">
-        Extensive curated corpus collections, linguistic databases, open access academic papers, theses, reference materials, and recommended analysis tools.
-      </div>
-    </div>
-
-    <div class="core-section">
-      <h2>Research Updates<br>研究动态</h2>
-      <div class="core-card">
-        Latest discoveries, breakthroughs, conference announcements, calls for papers, seminar info, and summaries of influential studies.
-      </div>
+      <ul>
+        <li>期刊数据库 / Journal Databases</li>
+        <li>语料库 / Corpora</li>
+        <li>开放获取资源 / Open Access Resources</li>
+      </ul>
     </div>
 
     <div class="core-section">
       <h2>Learning Hub<br>学习专区</h2>
-      <div class="core-card">
-        Guides and tutorials from foundational to advanced topics, curated video lectures, podcasts, interactive exercises, and language learning resources.
-      </div>
+      <ul>
+        <li>语言学导论 / Introduction to Linguistics</li>
+        <li>研究方法 / Research Methods</li>
+        <li>学术写作 / Academic Writing</li>
+      </ul>
+    </div>
+
+    <div class="core-section">
+      <h2>Research Updates<br>研究动态</h2>
+      <ul>
+        <li>最新论文 / Latest Papers</li>
+        <li>会议信息 / Conference Information</li>
+        <li>研究项目 / Research Projects</li>
+      </ul>
     </div>
 
     <div class="core-section">
       <h2>Community<br>社区交流</h2>
-      <div class="core-card">
-        Forums for discussion, Q&A, peer support, events and meetups, and collaborative projects.
-      </div>
+      <ul>
+        <li>讨论区 / Discussion Forum</li>
+        <li>合作机会 / Collaboration Opportunities</li>
+      </ul>
     </div>
 
   </section>

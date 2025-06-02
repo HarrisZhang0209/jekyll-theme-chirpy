@@ -1,360 +1,665 @@
----
-layout: home
----
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingutopia / 语托邦 - 语言学乌托邦</title>
+    <meta name="description" content="语言学知识平台，提供学术资源、学习资料和研究动态，促进语言学者交流合作">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #2f2f2f;
+            --primary-accent: #c9a72a;
+            --accent-hover: #f4b41a;
+            --banner-1: #d9534f;
+            --banner-2: #9ACD32;
+            --banner-3: #4b3b2b;
+            --banner-4: #555555;
+            --text-light: #f0f0f0;
+            --text-medium: #cfcfcf;
+            --shadow-dark: rgba(0, 0, 0, 0.45);
+        }
 
-<style>
-  /* 全局字体与颜色 */
-  body {
-    background-color: #2f2f2f; /* 商务灰 */
-    color: #eee;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    letter-spacing: 0.03em;
-    margin: 0;
-    padding: 0;
-  }
+        /* 全局字体与颜色 */
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2f2f2f 100%);
+            color: var(--text-light);
+            font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            letter-spacing: 0.03em;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
 
-  .container {
-    max-width: 1100px;
-    margin: 40px auto 80px auto;
-    padding: 0 20px;
-  }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto 80px;
+            padding: 0 20px;
+        }
 
-  /* Welcome */
-  .welcome {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  .welcome h1 {
-    font-weight: 800;
-    font-size: 3.2rem;
-    margin-bottom: 0.5em;
-    color: #fff;
-    letter-spacing: 0.1em;
-  }
-  .welcome p {
-    font-size: 1.6rem;
-    max-width: 720px;
-    margin: 0 auto;
-    color: #cfcfcf;
-  }
+        /* 顶部导航 */
+        .navbar {
+            background: rgba(47, 47, 47, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 15px 0;
+        }
 
-  /* 核心板块容器 */
-  .core-sections {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    margin-bottom: 70px;
-  }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  /* 核心板块整体 - 暗黄色背景 */
-  .core-section {
-    flex: 1;
-    background-color: #c9a72a; /* 暗黄色 */
-    border-radius: 14px;
-    padding: 28px 24px;
-    display: flex;
-    flex-direction: column;
-    color: #ddd;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .core-section:hover {
-    transform: scale(1.05);
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
-    z-index: 10;
-  }
-  /* 卡片顶部图片 */
-  .core-section img {
-    border-radius: 14px 14px 0 0;
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 18px;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-  }
+        .logo {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--accent-hover);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
 
-  .core-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #f2f2f2;
-    letter-spacing: 0.07em;
-    border-bottom: 2.5px solid #fff;
-    padding-bottom: 8px;
-  }
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
 
-  .core-section ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #eee;
-  }
-  .core-section ul li {
-    margin-bottom: 10px;
-    padding-left: 15px;
-    position: relative;
-  }
-  .core-section ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #f4b41a;
-    font-weight: bold;
-    font-size: 1.3rem;
-    top: 0;
-  }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
 
-  /* Banner板块通用样式 */
-  section.additional-section {
-    border-radius: 14px;
-    padding: 34px 30px 38px 30px;
-    margin-bottom: 60px;
-    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.48);
-    color: #f0f0f0;
-    position: relative;
-    overflow: hidden;
-    cursor: default;
-  }
-  section.additional-section img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 14px 14px 0 0;
-    opacity: 0.3;
-    z-index: 0;
-    animation: fadeIn 1.5s forwards;
-  }
-  section.additional-section::before {
-    /* 叠加渐变遮罩，提升文字可读性 */
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 160px;
-    border-radius: 14px 14px 0 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.5), transparent 90%);
-    z-index: 1;
-  }
-  section.additional-section > * {
-    position: relative;
-    z-index: 2;
-  }
-  section.additional-section h2 {
-    font-size: 2.2rem;
-    margin-bottom: 22px;
-    border-bottom: 3px solid #fff;
-    padding-bottom: 10px;
-    letter-spacing: 0.08em;
-  }
-  section.additional-section p, section.additional-section ul {
-    font-size: 1.15rem;
-    line-height: 1.85;
-    color: #e6e6e6;
-  }
-  section.additional-section ul {
-    list-style: inside disc;
-    margin-top: 14px;
-  }
-  section.additional-section ul li {
-    margin-bottom: 12px;
-  }
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
 
-  /* 交替颜色 */
-  .banner-1 {
-    background-color: #d9534f; /* 橙红色 */
-  }
-  .banner-2 {
-    background-color: #9ACD32; /* 黄绿色 */
-  }
-  .banner-3 {
-    background-color: #4b3b2b; /* 暗褐色 */
-  }
+        .nav-links a:hover {
+            color: var(--accent-hover);
+        }
 
-  /* About Us板块置底 */
-  .about-us {
-    background-color: #555555;
-    border-radius: 14px;
-    padding: 38px 35px;
-    margin-top: 80px;
-    color: #eee;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  }
-  .about-us h2 {
-    font-size: 2.4rem;
-    margin-bottom: 20px;
-    border-bottom: 3px solid #fff;
-    padding-bottom: 10px;
-    letter-spacing: 0.07em;
-    color: #fff;
-  }
-  .about-us p {
-    font-size: 1.2rem;
-    line-height: 1.7;
-    color: #ddd;
-  }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-hover);
+            transition: width 0.3s ease;
+        }
 
-  /* 动画关键帧 */
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-  /* 回到顶部按钮 */
-  #backToTop {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    background-color: #c9a72a;
-    color: #2f2f2f;
-    border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    font-size: 28px;
-    cursor: pointer;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
-    transition: background-color 0.3s ease;
-    z-index: 100;
-  }
-  #backToTop:hover {
-    background-color: #f4b41a;
-  }
+        /* Welcome */
+        .welcome {
+            text-align: center;
+            margin: 120px 0 70px;
+            padding: 0 20px;
+        }
+        .welcome h1 {
+            font-weight: 800;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            margin-bottom: 0.8rem;
+            color: #fff;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+        .welcome p {
+            font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-medium);
+            padding: 0 15px;
+        }
 
-  /* 响应式 */
-  @media (max-width: 960px) {
-    .core-sections {
-      flex-direction: column;
-    }
-    .core-section {
-      margin-bottom: 40px;
-    }
-  }
-  @media (max-width: 480px) {
-    .welcome h1 {
-      font-size: 2.4rem;
-    }
-    .welcome p {
-      font-size: 1.3rem;
-    }
-    .core-section h2, .additional-section h2 {
-      font-size: 1.8rem;
-    }
-    .core-section ul li, .additional-section p, .additional-section ul {
-      font-size: 1rem;
-    }
-  }
-</style>
+        .highlight {
+            color: var(--accent-hover);
+            font-weight: 600;
+        }
 
-<div class="container">
+        /* 核心板块容器 */
+        .core-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin-bottom: 70px;
+        }
 
-  <!-- Welcome -->
-  <section class="welcome" aria-label="Welcome Section">
-    <h1>Welcome to Lingutopia / 语托邦</h1>
-    <p>A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.</p>
-  </section>
+        /* 核心板块整体 - 暗黄色背景 */
+        .core-section {
+            background: linear-gradient(145deg, #c9a72a 0%, #b08a1f 100%);
+            border-radius: 16px;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            color: #f5f5f5;
+            box-shadow: 0 10px 25px var(--shadow-dark);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+        }
+        .core-section:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            z-index: 10;
+        }
+        
+        /* 卡片顶部图片 */
+        .core-section img {
+            border-radius: 12px;
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 22px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
 
-  <!-- 四大核心板块 -->
-  <section class="core-sections" aria-label="Core Sections">
+        .core-section h2 {
+            font-size: clamp(1.7rem, 2.2vw, 2.1rem);
+            margin-bottom: 20px;
+            color: #fff;
+            letter-spacing: 0.05em;
+            border-bottom: 2.5px solid rgba(255, 255, 255, 0.5);
+            padding-bottom: 12px;
+            font-weight: 700;
+        }
 
-    <div class="core-section" tabindex="0" aria-describedby="desc-academic">
-      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Academic Resources" />
-      <h2>Academic Resources<br>学术资源</h2>
-      <ul id="desc-academic">
-        <li>Journal Databases / 期刊数据库</li>
-        <li>Corpora / 语料库</li>
-        <li>Open Access Resources / 开放获取资源</li>
-      </ul>
+        .core-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            font-size: 1.12rem;
+            line-height: 1.7;
+            color: #f0f0f0;
+            flex-grow: 1;
+        }
+        .core-section ul li {
+            margin-bottom: 12px;
+            padding-left: 22px;
+            position: relative;
+        }
+        .core-section ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.8rem;
+            top: -8px;
+            opacity: 0.8;
+        }
+
+        /* Banner板块通用样式 */
+        section.additional-section {
+            border-radius: 16px;
+            padding: 40px 35px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px var(--shadow-dark);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+            transition: transform 0.3s ease;
+        }
+        section.additional-section:hover {
+            transform: translateY(-5px);
+        }
+        section.additional-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            opacity: 0.2;
+            z-index: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+        section.additional-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+            z-index: 1;
+        }
+        section.additional-section > * {
+            position: relative;
+            z-index: 2;
+        }
+        section.additional-section h2 {
+            font-size: clamp(1.9rem, 2.8vw, 2.3rem);
+            margin-bottom: 25px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+            padding-bottom: 12px;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+        section.additional-section p, section.additional-section ul {
+            font-size: 1.18rem;
+            line-height: 1.85;
+            color: #e6e6e6;
+            max-width: 900px;
+        }
+        section.additional-section ul {
+            list-style: none;
+            margin-top: 18px;
+            padding-left: 0;
+        }
+        section.additional-section ul li {
+            margin-bottom: 14px;
+            padding-left: 28px;
+            position: relative;
+        }
+        section.additional-section ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-hover);
+            font-weight: bold;
+            top: 0;
+        }
+
+        /* 交替颜色 */
+        .banner-1 {
+            background: linear-gradient(135deg, var(--banner-1) 0%, #c12e2a 100%);
+        }
+        .banner-2 {
+            background: linear-gradient(135deg, var(--banner-2) 0%, #7cb518 100%);
+        }
+        .banner-3 {
+            background: linear-gradient(135deg, var(--banner-3) 0%, #3a2d22 100%);
+        }
+
+        /* About Us板块置底 */
+        .about-us {
+            background: linear-gradient(135deg, var(--banner-4) 0%, #444 100%);
+            border-radius: 16px;
+            padding: 45px 40px;
+            margin-top: 80px;
+            color: #eee;
+            box-shadow: 0 10px 30px var(--shadow-dark);
+        }
+        .about-us h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            margin-bottom: 25px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+            padding-bottom: 12px;
+            letter-spacing: 0.05em;
+            color: #fff;
+            font-weight: 700;
+        }
+        .about-us p {
+            font-size: 1.18rem;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        /* 动画关键帧 */
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* 回到顶部按钮 */
+        #backToTop {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, var(--primary-accent) 0%, var(--accent-hover) 100%);
+            color: #2f2f2f;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 26px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        #backToTop.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #backToTop:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+
+        /* 页脚 */
+        .footer {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 40px 0 20px;
+            margin-top: 80px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-hover);
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: var(--text-medium);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-hover);
+        }
+        
+        .copyright {
+            color: #777;
+            font-size: 0.95rem;
+            margin-top: 20px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .welcome {
+                margin: 100px 0 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 0;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .welcome {
+                margin: 130px 0 50px;
+            }
+            
+            .core-section {
+                padding: 24px 20px;
+            }
+            
+            section.additional-section {
+                padding: 30px 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 12px;
+                font-size: 0.9rem;
+            }
+            
+            .welcome h1 {
+                font-size: 2.1rem;
+            }
+            
+            .welcome p {
+                font-size: 1.15rem;
+            }
+            
+            .core-section img {
+                height: 150px;
+            }
+            
+            .core-section ul li {
+                font-size: 1rem;
+            }
+            
+            #backToTop {
+                width: 48px;
+                height: 48px;
+                font-size: 22px;
+                bottom: 25px;
+                right: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="#" class="logo" aria-label="Lingutopia Home">
+                <span class="logo-icon">🌐</span>
+                Lingutopia
+            </a>
+            <div class="nav-links">
+                <a href="#academic" aria-label="Academic Resources">学术资源</a>
+                <a href="#learning" aria-label="Learning Hub">学习专区</a>
+                <a href="#research" aria-label="Research Updates">研究动态</a>
+                <a href="#community" aria-label="Community">社区交流</a>
+                <a href="#about" aria-label="About Us">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Welcome -->
+        <section class="welcome" aria-label="Welcome Section">
+            <h1>Welcome to <span class="highlight">Lingutopia</span> / 语托邦</h1>
+            <p>A utopia of linguistic thought, where ideas meet, knowledge grows, and <span class="highlight">voices are equal</span>.</p>
+        </section>
+
+        <!-- 四大核心板块 -->
+        <section class="core-sections" aria-label="Core Sections">
+
+            <div class="core-section" tabindex="0" aria-describedby="desc-academic" id="academic">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80&dpr=2" loading="lazy" alt="Academic Resources" />
+                <h2>Academic Resources<br>学术资源</h2>
+                <ul id="desc-academic">
+                    <li>Journal Databases / 期刊数据库</li>
+                    <li>Corpora / 语料库</li>
+                    <li>Open Access Resources / 开放获取资源</li>
+                </ul>
+            </div>
+
+            <div class="core-section" tabindex="0" aria-describedby="desc-learning" id="learning">
+                <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=600&q=80&dpr=2" loading="lazy" alt="Learning Hub" />
+                <h2>Learning Hub<br>学习专区</h2>
+                <ul id="desc-learning">
+                    <li>Introduction to Linguistics / 语言学导论</li>
+                    <li>Research Methods / 研究方法</li>
+                    <li>Academic Writing / 学术写作</li>
+                </ul>
+            </div>
+
+            <div class="core-section" tabindex="0" aria-describedby="desc-research" id="research">
+                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80&dpr=2" loading="lazy" alt="Research Updates" />
+                <h2>Research Updates<br>研究动态</h2>
+                <ul id="desc-research">
+                    <li>Latest Papers / 最新论文</li>
+                    <li>Conference Information / 会议信息</li>
+                    <li>Research Projects / 研究项目</li>
+                </ul>
+            </div>
+
+            <div class="core-section" tabindex="0" aria-describedby="desc-community" id="community">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80&dpr=2" loading="lazy" alt="Community" />
+                <h2>Community<br>社区交流</h2>
+                <ul id="desc-community">
+                    <li>Discussion Forum / 讨论区</li>
+                    <li>Collaboration Opportunities / 合作机会</li>
+                    <li>Q&amp;A / 求助问答</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- Banner板块 -->
+
+        <section class="additional-section banner-1" aria-label="Featured Publications">
+            <img src="https://images.unsplash.com/photo-1486308510493-cf07fcd48944?auto=format&fit=crop&w=1200&q=80&dpr=2" loading="lazy" alt="Featured Publications Background" />
+            <h2>Featured Publications<br>精选出版物</h2>
+            <p>Discover our curated collection of influential journals, books, and articles that have shaped contemporary linguistics worldwide.</p>
+            <ul>
+                <li>Top Linguistics Journals / 顶级语言学期刊</li>
+                <li>Essential Textbooks / 必备教材</li>
+                <li>Landmark Research Papers / 里程碑研究论文</li>
+            </ul>
+        </section>
+
+        <section class="additional-section banner-2" aria-label="Upcoming Events">
+            <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1200&q=80&dpr=2" loading="lazy" alt="Upcoming Events Background" />
+            <h2>Upcoming Events<br>即将举办活动</h2>
+            <ul>
+                <li>International Linguistics Conference 2025 / 2025年国际语言学大会</li>
+                <li>Workshops on Computational Linguistics / 计算语言学研讨会</li>
+                <li>Webinars and Seminars / 线上讲座及研讨</li>
+                <li>Guest Lectures / 客座讲座</li>
+            </ul>
+        </section>
+
+        <section class="additional-section banner-3" aria-label="Join Our Community">
+            <img src="https://images.unsplash.com/photo-1526378723979-5b2c25ef7384?auto=format&fit=crop&w=1200&q=80&dpr=2" loading="lazy" alt="Join Our Community Background" />
+            <h2>Join Our Community<br>加入我们的社区</h2>
+            <p>Connect with linguists globally, exchange ideas, and collaborate on cutting-edge research projects.</p>
+            <ul>
+                <li>Global Discussion Forums / 全球讨论区</li>
+                <li>Research Collaboration Hub / 研究合作中心</li>
+                <li>Language Learning Groups / 语言学习小组</li>
+            </ul>
+        </section>
+
+        <!-- About Us板块 -->
+        <section class="about-us" aria-label="About Lingutopia" id="about">
+            <h2>About Lingutopia / 关于语托邦</h2>
+            <p>Lingutopia is a visionary platform dedicated to fostering knowledge, dialogue, and innovation in the field of linguistics. We embrace diversity, international perspectives, and creative approaches to advance the science and art of language study.</p>
+            <p>Our mission is to create an inclusive space where linguists, researchers, students, and language enthusiasts can connect, collaborate, and contribute to the collective understanding of human language in all its forms.</p>
+        </section>
+
     </div>
 
-    <div class="core-section" tabindex="0" aria-describedby="desc-learning">
-      <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=600&q=80" alt="Learning Hub" />
-      <h2>Learning Hub<br>学习专区</h2>
-      <ul id="desc-learning">
-        <li>Introduction to Linguistics / 语言学导论</li>
-        <li>Research Methods / 研究方法</li>
-        <li>Academic Writing / 学术写作</li>
-      </ul>
-    </div>
+    <!-- 页脚 -->
+    <footer class="footer" aria-label="Site Footer">
+        <div class="footer-content">
+            <div class="footer-logo">Lingutopia</div>
+            <div class="footer-links">
+                <a href="#" aria-label="About Us">关于我们</a>
+                <a href="#" aria-label="Contact">联系我们</a>
+                <a href="#" aria-label="Privacy Policy">隐私政策</a>
+                <a href="#" aria-label="Terms of Service">使用条款</a>
+                <a href="#" aria-label="Contribute">贡献指南</a>
+            </div>
+            <p class="copyright">© 2025 Lingutopia / 语托邦. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <div class="core-section" tabindex="0" aria-describedby="desc-research">
-      <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80" alt="Research Updates" />
-      <h2>Research Updates<br>研究动态</h2>
-      <ul id="desc-research">
-        <li>Latest Papers / 最新论文</li>
-        <li>Conference Information / 会议信息</li>
-        <li>Research Projects / 研究项目</li>
-      </ul>
-    </div>
+    <button id="backToTop" aria-label="Back to top">↑</button>
 
-    <div class="core-section" tabindex="0" aria-describedby="desc-community">
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Community" />
-      <h2>Community<br>社区交流</h2>
-      <ul id="desc-community">
-        <li>Discussion Forum / 讨论区</li>
-        <li>Collaboration Opportunities / 合作机会</li>
-        <li>Q&amp;A / 求助问答</li>
-      </ul>
-    </div>
-
-  </section>
-
-  <!-- Banner板块 -->
-
-  <section class="additional-section banner-1" aria-label="Featured Publications">
-    <img src="https://images.unsplash.com/photo-1486308510493-cf07fcd48944?auto=format&fit=crop&w=1200&q=80" alt="Featured Publications Background" />
-    <h2>Featured Publications<br>精选出版物</h2>
-    <p>Discover our curated collection of influential journals, books, and articles that have shaped contemporary linguistics worldwide.</p>
-  </section>
-
-  <section class="additional-section banner-2" aria-label="Upcoming Events">
-    <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1200&q=80" alt="Upcoming Events Background" />
-    <h2>Upcoming Events<br>即将举办活动</h2>
-    <ul>
-      <li>International Linguistics Conference 2025 / 2025年国际语言学大会</li>
-      <li>Workshops on Computational Linguistics / 计算语言学研讨会</li>
-      <li>Webinars and Seminars / 线上讲座及研讨</li>
-    </ul>
-  </section>
-
-  <section class="additional-section banner-3" aria-label="Join Our Community">
-    <img src="https://images.unsplash.com/photo-1526378723979-5b2c25ef7384?auto=format&fit=crop&w=1200&q=80" alt="Join Our Community Background" />
-    <h2>Join Our Community<br>加入我们的社区</h2>
-    <p>Connect with linguists globally, exchange ideas, and collaborate on cutting-edge research projects.</p>
-  </section>
-
-  <!-- About Us板块 -->
-  <section class="about-us" aria-label="About Lingutopia">
-    <h2>About Lingutopia / 关于语托邦</h2>
-    <p>Lingutopia is a visionary platform dedicated to fostering knowledge, dialogue, and innovation in the field of linguistics. We embrace diversity, international perspectives, and creative approaches to advance the science and art of language study.</p>
-  </section>
-
-</div>
-
-<button id="backToTop" aria-label="Back to top">↑</button>
-
-<script>
-  // 回到顶部按钮逻辑
-  const backToTopBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > 400) {
-      backToTopBtn.style.display = 'block';
-    } else {
-      backToTopBtn.style.display = 'none';
-    }
-  });
-  backToTopBtn.style.display = 'none';
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  });
-</script>
+    <script>
+        // 回到顶部按钮逻辑
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 400) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+        
+        // 平滑滚动导航
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 卡片悬停效果增强
+        const coreSections = document.querySelectorAll('.core-section');
+        coreSections.forEach(section => {
+            section.addEventListener('mouseenter', () => {
+                section.style.zIndex = '10';
+            });
+            
+            section.addEventListener('mouseleave', () => {
+                section.style.zIndex = '1';
+            });
+        });
+    </script>
+</body>
+</html>

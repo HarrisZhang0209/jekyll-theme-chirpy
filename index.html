@@ -1,38 +1,262 @@
-<!-- 核心板块保持不变，这里只写除核心板块之外的部分 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lingutopia / 语托邦</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #2f2f2f; /* 商务灰色背景 */
+      color: #eee;
+      line-height: 1.5;
+    }
+    a {
+      color: #eee;
+      text-decoration: none;
+    }
+    h1, h2, h3 {
+      margin: 0 0 10px 0;
+      color: white;
+      font-weight: 700;
+    }
+    p, ul {
+      margin: 0 0 20px 0;
+      color: #ccc;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid white;
+      margin: 40px 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    /* Welcome */
+    .welcome {
+      text-align: center;
+      padding: 50px 20px 30px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #ddd;
+    }
+    /* 四大核心板块 */
+    .core-sections {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .core-card {
+      background-color: #bfa93d; /* 暗黄色 */
+      border-radius: 15px;
+      padding: 30px 25px;
+      width: 270px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      color: #ddd; /* 字体灰白 */
+      display: flex;
+      flex-direction: column;
+    }
+    .core-card h2 {
+      font-size: 1.7rem;
+      margin-bottom: 15px;
+      border-bottom: 1px solid white;
+      padding-bottom: 8px;
+    }
+    .core-card ul {
+      color: #ddd;
+      font-size: 1.05rem;
+      padding-left: 15px;
+      margin-top: 10px;
+    }
+    .core-card ul li {
+      margin-bottom: 8px;
+    }
+    .core-card ul li small {
+      color: #bbb;
+      font-weight: 300;
+    }
+    /* 细分小标题 */
+    .core-card ul li {
+      position: relative;
+      padding-left: 15px;
+    }
+    .core-card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #ddd;
+      font-weight: 700;
+    }
 
-<!-- Upcoming Events -->
-<section style="display: flex; align-items: center; margin-bottom: 50px; gap: 30px;">
-  <div style="flex: 1; background-color: #E85C3C; border-radius: 20px; padding: 30px; color: white; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-    <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/megaphone.svg" alt="Upcoming Events" style="width: 100px; height: 100px; margin-bottom: 15px;" />
-    <h2 style="margin: 0; font-size: 2rem;">Upcoming Events<br>近期活动</h2>
-  </div>
-  <div style="flex: 2; color: #eee; font-size: 1.1rem; line-height: 1.6;">
-    <ul>
-      <li>Workshop: Computational Linguistics – June 5-7</li>
-      <li>Symposium: Language and AI – July 12-14</li>
-      <li>Webinar: Discourse Analysis – August 10</li>
-    </ul>
-  </div>
-</section>
+    /* 其他板块通用banner */
+    section.banner-section {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 60px;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+    section.banner-section .banner-info {
+      flex: 1;
+      padding: 40px 30px;
+      color: white;
+    }
+    section.banner-section .banner-info h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    section.banner-section .banner-info p, 
+    section.banner-section .banner-info ul {
+      font-size: 1.1rem;
+      color: #ddd;
+      line-height: 1.6;
+    }
+    section.banner-section .banner-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+    section.banner-section .banner-image img {
+      max-width: 150px;
+      max-height: 150px;
+      object-fit: contain;
+      filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.4));
+    }
 
-<!-- Call for Papers -->
-<section style="display: flex; align-items: center; margin-bottom: 50px; gap: 30px; flex-direction: row-reverse;">
-  <div style="flex: 1; background-color: #A3C93A; border-radius: 20px; padding: 30px; color: white; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-    <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/call-for-papers.svg" alt="Call for Papers" style="width: 100px; height: 100px; margin-bottom: 15px;" />
-    <h2 style="margin: 0; font-size: 2rem;">Call for Papers<br>征稿启事</h2>
-  </div>
-  <div style="flex: 2; color: #eee; font-size: 1.1rem; line-height: 1.6;">
-    <p>Submit your latest research articles and proposals for our upcoming special issues and conferences.</p>
-  </div>
-</section>
+    /* 交替左右布局 */
+    section.banner-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
 
-<!-- About Us -->
-<section style="display: flex; align-items: center; margin-bottom: 50px; gap: 30px;">
-  <div style="flex: 1; background-color: #3E2C1C; border-radius: 20px; padding: 30px; color: white; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-    <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/about-us.svg" alt="About Us" style="width: 100px; height: 100px; margin-bottom: 15px;" />
-    <h2 style="margin: 0; font-size: 2rem;">About Lingutopia / 语托邦</h2>
+    /* 不同背景色 */
+    #upcoming-events {
+      background-color: #E85C3C; /* 橙红 */
+    }
+    #call-for-papers {
+      background-color: #A3C93A; /* 黄绿 */
+    }
+    #about-us {
+      background-color: #3E2C1C; /* 暗褐 */
+    }
+
+    /* 响应式 */
+    @media screen and (max-width: 900px) {
+      .core-sections {
+        justify-content: center;
+      }
+      .core-card {
+        width: 90%;
+      }
+      section.banner-section {
+        flex-direction: column !important;
+        text-align: center;
+      }
+      section.banner-section .banner-image {
+        padding: 15px 0;
+      }
+      section.banner-section .banner-info {
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Welcome -->
+    <section class="welcome" aria-label="Welcome">
+      <h1>A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.</h1>
+    </section>
+
+    <!-- 四大核心板块 -->
+    <section class="core-sections" aria-label="Core Sections">
+      <!-- Academic Resources -->
+      <div class="core-card" role="region" aria-labelledby="academic-resources-title">
+        <h2 id="academic-resources-title">学术资源 / Academic Resources</h2>
+        <ul>
+          <li>期刊数据库 <small>/ Journal Databases</small></li>
+          <li>语料库 <small>/ Corpora</small></li>
+          <li>开放获取资源 <small>/ Open Access Resources</small></li>
+        </ul>
+      </div>
+      <!-- Learning Hub -->
+      <div class="core-card" role="region" aria-labelledby="learning-hub-title">
+        <h2 id="learning-hub-title">🎓 学习专区 / Learning Hub</h2>
+        <ul>
+          <li>语言学导论 <small>/ Introduction to Linguistics</small></li>
+          <li>研究方法 <small>/ Research Methods</small></li>
+          <li>学术写作 <small>/ Academic Writing</small></li>
+        </ul>
+      </div>
+      <!-- Research Updates -->
+      <div class="core-card" role="region" aria-labelledby="research-updates-title">
+        <h2 id="research-updates-title">💡 研究动态 / Research Updates</h2>
+        <ul>
+          <li>最新论文 <small>/ Latest Papers</small></li>
+          <li>会议信息 <small>/ Conference Information</small></li>
+          <li>研究项目 <small>/ Research Projects</small></li>
+        </ul>
+      </div>
+      <!-- Community -->
+      <div class="core-card" role="region" aria-labelledby="community-title">
+        <h2 id="community-title">👥 社区交流 / Community</h2>
+        <ul>
+          <li>讨论区 <small>/ Discussion Forum</small></li>
+          <li>合作机会 <small>/ Collaboration Opportunities</small></li>
+          <li>求助问答 <small>/ Q&A</small></li>
+        </ul>
+      </div>
+    </section>
+
+    <hr/>
+
+    <!-- Upcoming Events -->
+    <section id="upcoming-events" class="banner-section" aria-labelledby="upcoming-events-title">
+      <div class="banner-image" aria-hidden="true">
+        <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/megaphone.svg" alt="" />
+      </div>
+      <div class="banner-info">
+        <h2 id="upcoming-events-title">Upcoming Events<br>近期活动</h2>
+        <ul>
+          <li>Workshop: Computational Linguistics – June 5-7</li>
+          <li>Symposium: Language and AI – July 12-14</li>
+          <li>Webinar: Discourse Analysis – August 10</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call for Papers -->
+    <section id="call-for-papers" class="banner-section" aria-labelledby="call-for-papers-title">
+      <div class="banner-image" aria-hidden="true">
+        <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/call-for-papers.svg" alt="" />
+      </div>
+      <div class="banner-info">
+        <h2 id="call-for-papers-title">Call for Papers<br>征稿启事</h2>
+        <p>Submit your latest research articles and proposals for our upcoming special issues and conferences.</p>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about-us" class="banner-section" aria-labelledby="about-us-title">
+      <div class="banner-image" aria-hidden="true">
+        <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/about-us.svg" alt="" />
+      </div>
+      <div class="banner-info">
+        <h2 id="about-us-title">About Lingutopia / 语托邦</h2>
+        <p>Lingutopia is your ultimate linguistic utopia, where researchers, students, and enthusiasts come together to explore the vast landscape of language studies. We strive to provide cutting-edge academic resources, foster collaborative learning, and create a vibrant community for linguistic innovation.</p>
+      </div>
+    </section>
   </div>
-  <div style="flex: 2; color: #eee; font-size: 1.1rem; line-height: 1.6;">
-    <p>Lingutopia is your ultimate linguistic utopia, where researchers, students, and enthusiasts come together to explore the vast landscape of language studies. We strive to provide cutting-edge academic resources, foster collaborative learning, and create a vibrant community for linguistic innovation.</p>
-  </div>
-</section>
+</body>
+</html>

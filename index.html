@@ -1,340 +1,63 @@
----
-layout: home
----
+<!-- Home Page Layout for Lingutopia / 语托邦 -->
 
-<style>
-  /* 基础字体和排版 */
-  body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: #222;
-    margin: 0;
-    background: #fff;
-  }
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-  /* Welcome 区块 */
-  .welcome {
-    text-align: center;
-    padding-bottom: 50px;
-    border-bottom: 1px solid #eaeaea;
-  }
-  .welcome h1 {
-    font-weight: 700;
-    font-size: 2.8rem;
-    margin-bottom: 15px;
-    letter-spacing: 0.04em;
-  }
-  .welcome p {
-    font-weight: 400;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    max-width: 650px;
-    margin: 0 auto;
-    color: #555;
-  }
+<!-- Welcome Section -->
+<section style="background-color: #2c2c2c; color: white; text-align: center; padding: 80px 20px;">
+  <h1 style="font-size: 3em; margin-bottom: 20px;">Welcome to Lingutopia / 语托邦</h1>
+  <p style="font-size: 1.2em; max-width: 700px; margin: 0 auto; line-height: 1.8;">
+    A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.<br>
+    Lingutopia / 语托邦 is a free, open-access platform for all who are passionate about linguistics.<br>
+    Here, you will find resources, updates, learning tools, and a welcoming community of scholars and students.<br>
+    Let’s build a place where knowledge is shared, curiosity is nurtured, and freedom of thought is celebrated.
+  </p>
+</section>
 
-  /* 四大板块容器 */
-  .features {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: wrap;
-  }
-  .feature-item {
-    flex: 1 1 220px; /* 最小220px，自动扩展 */
-    background: #fafafa;
-    border-radius: 8px;
-    padding: 25px 30px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.06);
-    transition: box-shadow 0.3s ease;
-  }
-  .feature-item:hover {
-    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
-  }
-  .feature-item h2 {
-    font-weight: 600;
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    color: #333;
-  }
-  .feature-item p {
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #666;
-  }
+<!-- Four Core Sections -->
+<section style="background-color: #1e1e1e; padding: 60px 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 40px;">
+  <div style="background: url('https://source.unsplash.com/600x400/?books,library') center/cover no-repeat; width: 300px; height: 200px; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.3em; font-weight: bold; border-radius: 12px;">Academic Resources</div>
+  <div style="background: url('https://source.unsplash.com/600x400/?research,data') center/cover no-repeat; width: 300px; height: 200px; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.3em; font-weight: bold; border-radius: 12px;">Research Updates</div>
+  <div style="background: url('https://source.unsplash.com/600x400/?learning,student') center/cover no-repeat; width: 300px; height: 200px; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.3em; font-weight: bold; border-radius: 12px;">Learning Hub</div>
+  <div style="background: url('https://source.unsplash.com/600x400/?community,discussion') center/cover no-repeat; width: 300px; height: 200px; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.3em; font-weight: bold; border-radius: 12px;">Community</div>
+</section>
 
-  /* 手机端响应式 */
-  @media (max-width: 720px) {
-    .features {
-      flex-direction: column;
-      gap: 20px;
-    }
-    .feature-item {
-      flex: none;
-      width: 100%;
-    }
-  }
-</style>
+<!-- About Us Section -->
+<section style="background-color: #f8f8f8; padding: 60px 20px; text-align: center;">
+  <h2 style="font-size: 2.2em; color: #333; margin-bottom: 30px;">About Us</h2>
+  <p style="max-width: 800px; margin: 0 auto; font-size: 1.1em; line-height: 1.8; color: #555;">
+    Lingutopia / 语托邦 is a dreamscape of linguistic inquiry—where passion for language meets a spirit of scholarly idealism. <br>
+    We believe in open knowledge, academic freedom, and equal access for all linguistics enthusiasts, from students to seasoned researchers. <br>
+    Through curated resources, dynamic updates, and a growing community, we aim to empower the next generation of thinkers to explore, connect, and flourish.
+  </p>
+</section>
 
-<div class="container">
-
-  <!-- Welcome 板块 -->
-  <section class="welcome">
-    <h1>Welcome to Lingutopia / 语托邦</h1>
-    <p>
-      A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.
-      <br><br>
-      Lingutopia / 语托邦 is a free, open-access platform for all who are passionate about linguistics.
-      Here, you will find resources, updates, learning tools, and a welcoming community of scholars and students.
-      <br><br>
-      Let’s build a place where knowledge is shared, curiosity is nurtured, and freedom of thought is celebrated.
-    </p>
-  </section>
-
-  <!-- 四大板块 -->
-  <section class="features">
-    <div class="feature-item">
-      <h2>学术资源 / Academic Resources</h2>
-      <p>Curated papers, datasets, and tools to empower your research and deepen your linguistic knowledge.</p>
+<!-- Recommended Readings -->
+<section style="padding: 60px 20px; background-color: #ffffff; text-align: center;">
+  <h2 style="font-size: 2em; color: #2c2c2c; margin-bottom: 30px;">Recommended Readings</h2>
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+    <div style="width: 300px; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+      <h3 style="color: #444;">Cutting-edge in Corpus Linguistics</h3>
+      <p style="color: #666; font-size: 0.95em;">Explore new methodologies, tools, and applications of corpora in discourse analysis and sociolinguistics.</p>
     </div>
-    <div class="feature-item">
-      <h2>研究动态 / Research Updates</h2>
-      <p>Stay informed with the latest discoveries, conferences, and breakthroughs in the field of linguistics.</p>
+    <div style="width: 300px; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+      <h3 style="color: #444;">Featured Paper: Appraisal Theory</h3>
+      <p style="color: #666; font-size: 0.95em;">Understand how evaluative language shapes journalistic stance and reader engagement.</p>
     </div>
-    <div class="feature-item">
-      <h2>学习专区 / Learning Hub</h2>
-      <p>Access tutorials, guides, and learning materials tailored for students and early-career researchers.</p>
-    </div>
-    <div class="feature-item">
-      <h2>社区交流 / Community</h2>
-      <p>Join discussions, share insights, and connect with fellow linguists in a respectful and inspiring environment.</p>
-    </div>
-  </section>
+  </div>
+</section>
 
-</div>
----
-layout: home
----
+<!-- Upcoming Events -->
+<section style="padding: 60px 20px; background-color: #f2f2f2; text-align: center;">
+  <h2 style="font-size: 2em; color: #2c2c2c; margin-bottom: 30px;">Upcoming Events</h2>
+  <p style="font-size: 1em; color: #555;">Stay tuned for our live webinars, academic salon nights, and special releases.</p>
+</section>
 
-<style>
-  /* 之前的样式保留不变 */
-  body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: #222;
-    margin: 0;
-    background: #fff;
-  }
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-  .welcome {
-    text-align: center;
-    padding-bottom: 50px;
-    border-bottom: 1px solid #eaeaea;
-  }
-  .welcome h1 {
-    font-weight: 700;
-    font-size: 2.8rem;
-    margin-bottom: 15px;
-    letter-spacing: 0.04em;
-  }
-  .welcome p {
-    font-weight: 400;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    max-width: 650px;
-    margin: 0 auto;
-    color: #555;
-  }
-  .features {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: wrap;
-  }
-  .feature-item {
-    flex: 1 1 220px;
-    background: #fafafa;
-    border-radius: 8px;
-    padding: 25px 30px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.06);
-    transition: box-shadow 0.3s ease;
-  }
-  .feature-item:hover {
-    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
-  }
-  .feature-item h2 {
-    font-weight: 600;
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    color: #333;
-  }
-  .feature-item p {
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #666;
-  }
-  @media (max-width: 720px) {
-    .features {
-      flex-direction: column;
-      gap: 20px;
-    }
-    .feature-item {
-      flex: none;
-      width: 100%;
-    }
-  }
+<!-- Community Wall -->
+<section style="padding: 60px 20px; background-color: #e8e8e8; text-align: center;">
+  <h2 style="font-size: 2em; color: #2c2c2c; margin-bottom: 30px;">Community Wall</h2>
+  <p style="font-size: 1em; color: #555;">Join the discussion, share your thoughts, and meet fellow linguists.</p>
+</section>
 
-  /* 新增板块样式 */
-  .section-divider {
-    margin: 60px 0 40px;
-    border-top: 2px solid #ddd;
-  }
-  .section-title {
-    font-weight: 700;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #222;
-    text-align: center;
-    letter-spacing: 0.03em;
-  }
-  .featured-reads, .latest-events {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  .card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
-    padding: 20px 25px;
-    flex: 1 1 300px;
-    transition: box-shadow 0.25s ease;
-  }
-  .card:hover {
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-  }
-  .card h3 {
-    font-weight: 600;
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-    color: #111;
-  }
-  .card p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #444;
-  }
-  .card small {
-    display: block;
-    margin-top: 12px;
-    color: #999;
-    font-style: italic;
-  }
-  @media (max-width: 720px) {
-    .featured-reads, .latest-events {
-      flex-direction: column;
-    }
-    .card {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  }
-</style>
-
-<div class="container">
-
-  <!-- Welcome 板块 -->
-  <section class="welcome">
-    <h1>Welcome to Lingutopia / 语托邦</h1>
-    <p>
-      A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.
-      <br><br>
-      Lingutopia / 语托邦 is a free, open-access platform for all who are passionate about linguistics.
-      Here, you will find resources, updates, learning tools, and a welcoming community of scholars and students.
-      <br><br>
-      Let’s build a place where knowledge is shared, curiosity is nurtured, and freedom of thought is celebrated.
-    </p>
-  </section>
-
-  <!-- 四大板块 -->
-  <section class="features">
-    <div class="feature-item">
-      <h2>学术资源 / Academic Resources</h2>
-      <p>Curated papers, datasets, and tools to empower your research and deepen your linguistic knowledge.</p>
-    </div>
-    <div class="feature-item">
-      <h2>研究动态 / Research Updates</h2>
-      <p>Stay informed with the latest discoveries, conferences, and breakthroughs in the field of linguistics.</p>
-    </div>
-    <div class="feature-item">
-      <h2>学习专区 / Learning Hub</h2>
-      <p>Access tutorials, guides, and learning materials tailored for students and early-career researchers.</p>
-    </div>
-    <div class="feature-item">
-      <h2>社区交流 / Community</h2>
-      <p>Join discussions, share insights, and connect with fellow linguists in a respectful and inspiring environment.</p>
-    </div>
-  </section>
-
-  <!-- 分割线 -->
-  <div class="section-divider"></div>
-
-  <!-- 推荐阅读板块 -->
-  <section>
-    <h2 class="section-title">推荐阅读 / Featured Reads</h2>
-    <div class="featured-reads">
-      <div class="card">
-        <h3>The Power of Language in Society</h3>
-        <p>Explore how language shapes cultural identity and social dynamics in modern communities.</p>
-        <small>By Dr. Emma Liu, 2025</small>
-      </div>
-      <div class="card">
-        <h3>Corpus Linguistics: Methods & Applications</h3>
-        <p>A comprehensive guide to corpus linguistics techniques and their role in data-driven research.</p>
-        <small>By Prof. Alan Chen, 2024</small>
-      </div>
-      <div class="card">
-        <h3>Language Acquisition in Multilingual Settings</h3>
-        <p>Insights into how children acquire multiple languages and the cognitive benefits involved.</p>
-        <small>By Dr. Maya Singh, 2025</small>
-      </div>
-    </div>
-  </section>
-
-  <!-- 分割线 -->
-  <div class="section-divider"></div>
-
-  <!-- 最新活动板块 -->
-  <section>
-    <h2 class="section-title">最新活动 / Latest Events</h2>
-    <div class="latest-events">
-      <div class="card">
-        <h3>Annual Linguistics Symposium 2025</h3>
-        <p>Join scholars worldwide for discussions on language evolution and technology.</p>
-        <small>June 10-12, 2025 | Online</small>
-      </div>
-      <div class="card">
-        <h3>Workshop: Phonetics & Phonology</h3>
-        <p>Hands-on training with leading experts to enhance your phonetic analysis skills.</p>
-        <small>July 15, 2025 | Lingutopia HQ</small>
-      </div>
-      <div class="card">
-        <h3>Call for Papers: Journal of Applied Linguistics</h3>
-        <p>Submit your research articles for the upcoming special issue on language and society.</p>
-        <small>Deadline: August 31, 2025</small>
-      </div>
-    </div>
-  </section>
-
-</div>
+<!-- Footer -->
+<footer style="background-color: #2c2c2c; color: #ccc; text-align: center; padding: 30px 20px; font-size: 0.9em;">
+  <p>© 2025 Lingutopia / 语托邦. All rights reserved.</p>
+  <p>Contact: linguutopia@gmail.com | Built with GitHub Pages</p>
+</footer>

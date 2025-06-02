@@ -3,51 +3,117 @@ layout: home
 ---
 
 <style>
-  /* 中央居中容器，最大宽度限制，响应式 */
-  .hero-container {
-    max-width: 720px;
-    margin: 80px auto 120px;
-    padding: 0 20px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* 基础字体和排版 */
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #222;
-    line-height: 1.6;
+    margin: 0;
+    background: #fff;
   }
-  /* 大标题 */
-  .hero-container h1 {
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  /* Welcome 区块 */
+  .welcome {
+    text-align: center;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #eaeaea;
+  }
+  .welcome h1 {
     font-weight: 700;
     font-size: 2.8rem;
-    letter-spacing: -0.04em;
-    margin-bottom: 0.3em;
+    margin-bottom: 15px;
+    letter-spacing: 0.04em;
   }
-  /* 副标题斜体 */
-  .hero-container p.lead {
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.25rem;
+  .welcome p {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0 auto;
     color: #555;
-    margin-bottom: 2.5em;
   }
-  /* 正文 */
-  .hero-container p {
-    font-size: 1.1rem;
-    color: #333;
-    margin-bottom: 1.4em;
+
+  /* 四大板块容器 */
+  .features {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
   }
-  /* 重点词用加粗 */
-  .hero-container strong {
+  .feature-item {
+    flex: 1 1 220px; /* 最小220px，自动扩展 */
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 25px 30px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+    transition: box-shadow 0.3s ease;
+  }
+  .feature-item:hover {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+  }
+  .feature-item h2 {
     font-weight: 600;
-    color: #111;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #333;
+  }
+  .feature-item p {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666;
+  }
+
+  /* 手机端响应式 */
+  @media (max-width: 720px) {
+    .features {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .feature-item {
+      flex: none;
+      width: 100%;
+    }
   }
 </style>
 
-<section class="hero-container">
-  <h1>Welcome to <strong>Lingutopia / 语托邦</strong></h1>
+<div class="container">
 
-  <p class="lead">A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.</p>
+  <!-- Welcome 板块 -->
+  <section class="welcome">
+    <h1>Welcome to Lingutopia / 语托邦</h1>
+    <p>
+      A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.
+      <br><br>
+      Lingutopia / 语托邦 is a free, open-access platform for all who are passionate about linguistics.
+      Here, you will find resources, updates, learning tools, and a welcoming community of scholars and students.
+      <br><br>
+      Let’s build a place where knowledge is shared, curiosity is nurtured, and freedom of thought is celebrated.
+    </p>
+  </section>
 
-  <p><strong>Lingutopia / 语托邦</strong> is a free, open-access platform for all who are passionate about linguistics.</p>
+  <!-- 四大板块 -->
+  <section class="features">
+    <div class="feature-item">
+      <h2>学术资源 / Academic Resources</h2>
+      <p>Curated papers, datasets, and tools to empower your research and deepen your linguistic knowledge.</p>
+    </div>
+    <div class="feature-item">
+      <h2>研究动态 / Research Updates</h2>
+      <p>Stay informed with the latest discoveries, conferences, and breakthroughs in the field of linguistics.</p>
+    </div>
+    <div class="feature-item">
+      <h2>学习专区 / Learning Hub</h2>
+      <p>Access tutorials, guides, and learning materials tailored for students and early-career researchers.</p>
+    </div>
+    <div class="feature-item">
+      <h2>社区交流 / Community</h2>
+      <p>Join discussions, share insights, and connect with fellow linguists in a respectful and inspiring environment.</p>
+    </div>
+  </section>
 
-  <p>Here, you will find resources, updates, learning tools, and a welcoming community of scholars and students.</p>
-
-  <p>Let’s build a place where knowledge is shared, curiosity is nurtured, and freedom of thought is celebrated.</p>
-</section>
+</div>

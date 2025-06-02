@@ -1,280 +1,38 @@
----
-layout: home
----
+<!-- 核心板块保持不变，这里只写除核心板块之外的部分 -->
 
-<style>
-  body {
-    background-color: #2f2f2f;
-    color: #eee;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-
-  .container {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-
-  /* Welcome */
-  .welcome {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  .welcome h1 {
-    font-weight: 700;
-    font-size: 3rem;
-    margin-bottom: 0.4em;
-    color: #fff;
-  }
-  .welcome p {
-    font-size: 1.5rem;
-    line-height: 1.2;
-    max-width: 700px;
-    margin: 0 auto;
-    color: #d1d1d1;
-  }
-
-  /* 核心板块容器 */
-  .core-sections {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 60px;
-  }
-
-  /* 核心板块整体 - 暗黄色背景，矩形卡片 */
-  .core-section {
-    flex: 1;
-    background-color: #c9a72a;
-    border-radius: 12px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    color: #ddd;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-  }
-  .core-section img {
-    border-radius: 12px 12px 0 0;
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    margin-bottom: 16px;
-  }
-  .core-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 16px;
-    color: #ddd;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 6px;
-  }
-  .core-section ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #ddd;
-  }
-  .core-section ul li {
-    margin-bottom: 8px;
-  }
-  .core-section ul li::before {
-    content: "• ";
-    color: #f4b41a;
-    font-weight: bold;
-  }
-
-  /* Banner通用 */
-  section.additional-section {
-    position: relative;
-    padding: 40px 30px 30px 30px;
-    margin-bottom: 50px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-    color: #f0f0f0;
-    overflow: visible;
-  }
-
-  section.additional-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 8px;
-    color: #fff;
-    position: relative;
-    z-index: 10;
-  }
-
-  section.additional-section p, section.additional-section ul {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #e6e6e6;
-    position: relative;
-    z-index: 10;
-  }
-  section.additional-section ul {
-    list-style: inside disc;
-    margin-top: 12px;
-  }
-
-  /* 圆形Banner */
-  .banner-circle {
-    background-color: #e57224; /* 橙红色 */
-    border-radius: 50%;
-    width: 320px;
-    height: 320px;
-    margin: 0 auto 50px auto;
-    padding: 40px 30px 30px 30px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  }
-  .banner-circle h2 {
-    margin-top: 30px;
-  }
-
-  /* 椭圆Banner */
-  .banner-ellipse {
-    background-color: #9ACD32; /* 黄绿色 */
-    border-radius: 100px / 50px;
-    padding: 40px 60px 40px 60px;
-    margin-bottom: 50px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  }
-
-  /* 斜切异形Banner */
-  .banner-skew {
-    background-color: #4b3b2b; /* 暗褐色 */
-    padding: 50px 40px 50px 40px;
-    margin-bottom: 50px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
-  }
-
-  /* Banner图片样式 - 改为设计感插画 */
-  .banner-img {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 120px;
-    height: 120px;
-    opacity: 0.25;
-    pointer-events: none;
-  }
-
-  /* About Us置底 */
-  .about-us {
-    background-color: #555555;
-    border-radius: 12px;
-    padding: 30px 25px;
-    margin-top: 80px;
-    color: #eee;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-  }
-  .about-us h2 {
-    font-size: 2rem;
-    margin-bottom: 18px;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 8px;
-    color: #fff;
-  }
-  .about-us p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 960px) {
-    .core-sections {
-      flex-direction: column;
-    }
-    .core-section {
-      margin-bottom: 30px;
-    }
-    .banner-circle, .banner-ellipse, .banner-skew {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      clip-path: none;
-      padding: 30px;
-    }
-    .banner-img {
-      display: none;
-    }
-  }
-</style>
-
-<div class="container">
-
-  <!-- Welcome -->
-  <section class="welcome">
-    <h1>Welcome to Lingutopia / 语托邦</h1>
-    <p>A utopia of linguistic thought, where ideas meet, knowledge grows, and voices are equal.</p>
-  </section>
-
-  <!-- 四大核心板块 -->
-  <section class="core-sections">
-
-    <div class="core-section">
-      <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-shapes@main/shape1.svg" alt="Academic Resources Image" />
-      <h2>Academic Resources<br>学术资源</h2>
-      <ul>
-        <li>期刊数据库 / Journal Databases</li>
-        <li>语料库 / Corpora</li>
-        <li>开放获取资源 / Open Access Resources</li>
-      </ul>
-    </div>
-
-    <div class="core-section">
-      <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-shapes@main/shape2.svg" alt="Learning Hub Image" />
-      <h2>Learning Hub<br>学习专区</h2>
-      <ul>
-        <li>语言学导论 / Introduction to Linguistics</li>
-        <li>研究方法 / Research Methods</li>
-        <li>学术写作 / Academic Writing</li>
-      </ul>
-    </div>
-
-    <div class="core-section">
-      <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-shapes@main/shape3.svg" alt="Research Updates Image" />
-      <h2>Research Updates<br>研究动态</h2>
-      <ul>
-        <li>最新论文 / Latest Papers</li>
-        <li>会议信息 / Conference Information</li>
-        <li>研究项目 / Research Projects</li>
-      </ul>
-    </div>
-
-    <div class="core-section">
-      <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-shapes@main/shape4.svg" alt="Community Image" />
-      <h2>Community<br>社区交流</h2>
-      <ul>
-        <li>讨论区 / Discussion Forum</li>
-        <li>合作机会 / Collaboration Opportunities</li>
-        <li>求助问答 / Q&amp;A</li>
-      </ul>
-    </div>
-
-  </section>
-
-  <!-- Banner板块 -->
-
-  <section class="additional-section banner-circle" style="background-color:#E85C3C;">
-    <img class="banner-img" src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/megaphone.svg" alt="Upcoming Events" />
-    <h2>Upcoming Events<br>近期活动</h2>
+<!-- Upcoming Events -->
+<section style="display: flex; align-items: center; margin-bottom: 50px; gap: 30px;">
+  <div style="flex: 1; background-color: #E85C3C; border-radius: 20px; padding: 30px; color: white; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/megaphone.svg" alt="Upcoming Events" style="width: 100px; height: 100px; margin-bottom: 15px;" />
+    <h2 style="margin: 0; font-size: 2rem;">Upcoming Events<br>近期活动</h2>
+  </div>
+  <div style="flex: 2; color: #eee; font-size: 1.1rem; line-height: 1.6;">
     <ul>
       <li>Workshop: Computational Linguistics – June 5-7</li>
       <li>Symposium: Language and AI – July 12-14</li>
       <li>Webinar: Discourse Analysis – August 10</li>
     </ul>
-  </section>
+  </div>
+</section>
 
-  <section class="additional-section banner-ellipse" style="background-color:#A3C93A;">
-    <img class="banner-img" src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/call-for-papers.svg" alt="Call for Papers" />
-    <h2>Call for Papers<br>征稿启事</h2>
+<!-- Call for Papers -->
+<section style="display: flex; align-items: center; margin-bottom: 50px; gap: 30px; flex-direction: row-reverse;">
+  <div style="flex: 1; background-color: #A3C93A; border-radius: 20px; padding: 30px; color: white; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/call-for-papers.svg" alt="Call for Papers" style="width: 100px; height: 100px; margin-bottom: 15px;" />
+    <h2 style="margin: 0; font-size: 2rem;">Call for Papers<br>征稿启事</h2>
+  </div>
+  <div style="flex: 2; color: #eee; font-size: 1.1rem; line-height: 1.6;">
     <p>Submit your latest research articles and proposals for our upcoming special issues and conferences.</p>
-  </section>
+  </div>
+</section>
 
-  <section class="additional-section banner-skew" style="background-color:#3E2C1C;">
-    <img class="banner-img" src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/about-us.svg" alt="About Us" />
-    <h2>About Lingutopia / 语托邦</h2>
+<!-- About Us -->
+<section style="display: flex; align-items: center; margin-bottom: 50px; gap: 30px;">
+  <div style="flex: 1; background-color: #3E2C1C; border-radius: 20px; padding: 30px; color: white; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <img src="https://cdn.jsdelivr.net/gh/anshumanv/abstract-icons@main/about-us.svg" alt="About Us" style="width: 100px; height: 100px; margin-bottom: 15px;" />
+    <h2 style="margin: 0; font-size: 2rem;">About Lingutopia / 语托邦</h2>
+  </div>
+  <div style="flex: 2; color: #eee; font-size: 1.1rem; line-height: 1.6;">
     <p>Lingutopia is your ultimate linguistic utopia, where researchers, students, and enthusiasts come together to explore the vast landscape of language studies. We strive to provide cutting-edge academic resources, foster collaborative learning, and create a vibrant community for linguistic innovation.</p>
-  </section>
-
-</div>
+  </div>
+</section>
